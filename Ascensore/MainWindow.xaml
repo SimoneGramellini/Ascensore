@@ -9,7 +9,7 @@
     <Grid>
         <Image x:Name="sfondo" HorizontalAlignment="Left" Height="857" VerticalAlignment="Top" Width="1097" Source="sfondo.png"/>
         <Image x:Name="ascensore" HorizontalAlignment="Left" Height="847" VerticalAlignment="Top" Width="432" Source="Ascensore .png" Margin="10,0,0,0"/>
-        <Image x:Name="cabina" HorizontalAlignment="Left" Height="208" Margin="30,668,0,-19" VerticalAlignment="Top" Width="324" Source="cabina.png"/>
+        <Image x:Name="cabina" HorizontalAlignment="Left" Height="208" Margin="28,666,0,-17" VerticalAlignment="Top" Width="324" Source="cabina.png"/>
         <Image x:Name="piani" HorizontalAlignment="Left" Height="717" Margin="387,62,0,0" VerticalAlignment="Top" Width="81" Source="piani.png"/>
         <Image x:Name="titolo" HorizontalAlignment="Left" Height="239" Margin="616,0,0,0" VerticalAlignment="Top" Width="447" Source="TITOLO.png"/>
         <Image x:Name="tastierino" HorizontalAlignment="Left" Height="460" Margin="616,244,0,0" VerticalAlignment="Top" Width="302" Source="Tastierino.png"/>
@@ -37,7 +37,7 @@
                 <ImageBrush ImageSource="5.png"/>
             </Button.Background>
         </Button>
-        <Button x:Name="btn2" Content="" HorizontalAlignment="Left" Margin="770,503,0,0" VerticalAlignment="Top" Width="122" Height="121" Click="btn2_Click" Foreground="{x:Null}">
+        <Button x:Name="btn2" Content="" HorizontalAlignment="Left" Margin="770,503,0,0" VerticalAlignment="Top" Width="122" Height="121" Click="btn2_Click" Foreground="{x:Null}" RenderTransformOrigin="1,0">
             <Button.BorderBrush>
                 <ImageBrush/>
             </Button.BorderBrush>
