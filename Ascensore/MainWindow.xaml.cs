@@ -22,116 +22,314 @@ namespace Ascensore
     public partial class MainWindow : Window
     {
         private static object x = new object();
-        const int ALTEZZA_PIANO_1 = 665;
-        const int ALTEZZA_PIANO_2 = 543;
-        const int ALTEZZA_PIANO_3 = 410;
-        const int ALTEZZA_PIANO_4 = 273;
-        const int ALTEZZA_PIANO_5 = 143;
-        const int ALTEZZA_PIANO_6 = 20;
-        int altezzaDaRaggiungere = 0; 
-        bool salire = false;
-        int TopCabina = 0;
+        const double ALTEZZA_PIANO_1 = 665;
+        const double ALTEZZA_PIANO_2 = 543;
+        const double ALTEZZA_PIANO_3 = 410;
+        const double ALTEZZA_PIANO_4 = 273;
+        const double ALTEZZA_PIANO_5 = 143;
+        const double ALTEZZA_PIANO_6 = 20;
+        double altezzaGlobale;
+        bool salireCabina1 = false;
+        bool salireCabina2 = false;
+        bool salireCabina3 = false;
+        bool salireCabina4 = false;
+        bool salireCabina5 = false;
+        bool salireCabina6 = false;
         public MainWindow()
         {
             InitializeComponent();
-            cabina.Margin = new Thickness(28, ALTEZZA_PIANO_3, 0, 0); //posizione di partenza
+            cabina.Margin = new Thickness(28, ALTEZZA_PIANO_2, 0, 0); //posizione di partenza
         }
 
-        public void MuoviAscensore()
+        private void btn1_Click(object sender, RoutedEventArgs e)
         {
-            lock (x)
+            this.Dispatcher.BeginInvoke(new Action(() =>
             {
-                if (!salire) //devo scendere
-                {
-                    for (int i = TopCabina; i < altezzaDaRaggiungere; i += 2)
-                    {
-                        Thread.Sleep(TimeSpan.FromSeconds(0.01));
-                        this.Dispatcher.BeginInvoke(new Action(() =>
-                        {
-                            cabina.Margin = new Thickness(28, i, 0, 0);
-                        }));
-                    }
-                }
-                else //salgo
-                {
-                    for (int i = TopCabina; i > altezzaDaRaggiungere; i -= 2)
-                    {
-                        Thread.Sleep(TimeSpan.FromSeconds(0.01));
-                        this.Dispatcher.BeginInvoke(new Action(() =>
-                        {
-                            cabina.Margin = new Thickness(28, i, 0, 0);
-                        }));
-                    }
-                }
-                //Thread.Sleep(TimeSpan.FromSeconds(0,8)); da mettere eventualmente senza il problema del dispatcher
-            }
-        }
-        public void GestisciPiano()
-        {
-            MessageBox.Show("messaggio x fix");
-            if ((int)cabina.Margin.Top <= altezzaDaRaggiungere)
+                altezzaGlobale = cabina.Margin.Top;
+            }));
+            if (altezzaGlobale < ALTEZZA_PIANO_2)
             {
-                salire = false;
+                salireCabina1 = false;
             }
             else
             {
-                salire = true;
+                salireCabina1 = true;
             }
-            TopCabina = (int)cabina.Margin.Top;
-            Thread t = new Thread(new ThreadStart(MuoviAscensore));
+            Thread t = new Thread(new ThreadStart(MetodoThreadBottone1));
             t.Start();
         }
-        private void btn1_Click(object sender, RoutedEventArgs e)
+        public void MetodoThreadBottone1()
         {
             lock (x)
             {
-                altezzaDaRaggiungere = ALTEZZA_PIANO_1;
-                GestisciPiano();
+                if (altezzaGlobale < ALTEZZA_PIANO_1)
+                {
+                    while (altezzaGlobale < ALTEZZA_PIANO_1)
+                    {
+                        Thread.Sleep(TimeSpan.FromSeconds(0.01));
+                        altezzaGlobale += 2;
+                        this.Dispatcher.BeginInvoke(new Action(() =>
+                        {
+                            cabina.Margin = new Thickness(28, altezzaGlobale, 0, 0);
+                        }));
+                    }
+                    Thread.Sleep(TimeSpan.FromSeconds(0.9));
+                }
+                else
+                {
+                    while (altezzaGlobale > ALTEZZA_PIANO_1)
+                    {
+                        Thread.Sleep(TimeSpan.FromSeconds(0.01));
+                        altezzaGlobale -= 2;
+                        this.Dispatcher.BeginInvoke(new Action(() =>
+                        {
+                            cabina.Margin = new Thickness(28, altezzaGlobale, 0, 0);
+                        }));
+                    }
+                    Thread.Sleep(TimeSpan.FromSeconds(0.9));
+                }
             }
         }
 
         private void btn2_Click(object sender, RoutedEventArgs e)
         {
+            this.Dispatcher.BeginInvoke(new Action(() =>
+            {
+                altezzaGlobale = cabina.Margin.Top;
+            }));
+            if (altezzaGlobale < ALTEZZA_PIANO_2)
+            {
+                salireCabina2 = false;
+            }
+            else
+            {
+                salireCabina2 = true;
+            }
+            Thread t = new Thread(new ThreadStart(MetodoThreadBottone2));
+            t.Start();
+        }
+        public void MetodoThreadBottone2()
+        {
             lock (x)
             {
-                altezzaDaRaggiungere = ALTEZZA_PIANO_2;
-                GestisciPiano();
+                if (altezzaGlobale < ALTEZZA_PIANO_2)
+                {
+                    while (altezzaGlobale < ALTEZZA_PIANO_2)
+                    {
+                        Thread.Sleep(TimeSpan.FromSeconds(0.01));
+                        altezzaGlobale += 2;
+                        this.Dispatcher.BeginInvoke(new Action(() =>
+                        {
+                            cabina.Margin = new Thickness(28, altezzaGlobale, 0, 0);
+                        }));
+                    }
+                    Thread.Sleep(TimeSpan.FromSeconds(0.9));
+                }
+                else
+                {
+                    while (altezzaGlobale > ALTEZZA_PIANO_2)
+                    {
+                        Thread.Sleep(TimeSpan.FromSeconds(0.01));
+                        altezzaGlobale -= 2;
+                        this.Dispatcher.BeginInvoke(new Action(() =>
+                        {
+                            cabina.Margin = new Thickness(28, altezzaGlobale, 0, 0);
+                        }));
+                    }
+                    Thread.Sleep(TimeSpan.FromSeconds(0.9));
+                }
             }
         }
 
         private void btn3_Click(object sender, RoutedEventArgs e)
         {
+            this.Dispatcher.BeginInvoke(new Action(() =>
+            {
+                altezzaGlobale = cabina.Margin.Top;
+            }));
+            Thread t = new Thread(new ThreadStart(MetodoThreadBottone3));
+            t.Start();
+        }
+        public void MetodoThreadBottone3()
+        {
             lock (x)
             {
-                altezzaDaRaggiungere = ALTEZZA_PIANO_3;
-                GestisciPiano();
+                if (altezzaGlobale < ALTEZZA_PIANO_3)
+                {
+                    while (altezzaGlobale < ALTEZZA_PIANO_3)
+                    {
+                        Thread.Sleep(TimeSpan.FromSeconds(0.01));
+                        altezzaGlobale += 2;
+                        this.Dispatcher.BeginInvoke(new Action(() =>
+                        {
+                            cabina.Margin = new Thickness(28, altezzaGlobale, 0, 0);
+                        }));
+                    }
+                    Thread.Sleep(TimeSpan.FromSeconds(0.9));
+                }
+                else
+                {
+                    while (altezzaGlobale > ALTEZZA_PIANO_3)
+                    {
+                        Thread.Sleep(TimeSpan.FromSeconds(0.01));
+                        altezzaGlobale -= 2;
+                        this.Dispatcher.BeginInvoke(new Action(() =>
+                        {
+                            cabina.Margin = new Thickness(28, altezzaGlobale, 0, 0);
+                        }));
+                    }
+                    Thread.Sleep(TimeSpan.FromSeconds(0.9));
+                }
             }
         }
 
         private void btn4_Click(object sender, RoutedEventArgs e)
         {
+            this.Dispatcher.BeginInvoke(new Action(() =>
+            {
+                altezzaGlobale = cabina.Margin.Top;
+            }));
+            if (altezzaGlobale < ALTEZZA_PIANO_4)
+            {
+                salireCabina4 = false;
+            }
+            else
+            {
+                salireCabina4 = true;
+            }
+            Thread t = new Thread(new ThreadStart(MetodoThreadBottone4));
+            t.Start();
+        }
+        public void MetodoThreadBottone4()
+        {
             lock (x)
             {
-                altezzaDaRaggiungere = ALTEZZA_PIANO_4;
-                GestisciPiano();
+                if (altezzaGlobale < ALTEZZA_PIANO_4)
+                {
+                    while (altezzaGlobale < ALTEZZA_PIANO_4)
+                    {
+                        Thread.Sleep(TimeSpan.FromSeconds(0.01));
+                        altezzaGlobale += 2;
+                        this.Dispatcher.BeginInvoke(new Action(() =>
+                        {
+                            cabina.Margin = new Thickness(28, altezzaGlobale, 0, 0);
+                        }));
+                    }
+                    Thread.Sleep(TimeSpan.FromSeconds(0.9));
+                }
+                else
+                {
+                    while (altezzaGlobale > ALTEZZA_PIANO_4)
+                    {
+                        Thread.Sleep(TimeSpan.FromSeconds(0.01));
+                        altezzaGlobale -= 2;
+                        this.Dispatcher.BeginInvoke(new Action(() =>
+                        {
+                            cabina.Margin = new Thickness(28, altezzaGlobale, 0, 0);
+                        }));
+                    }
+                    Thread.Sleep(TimeSpan.FromSeconds(0.9));
+                }
             }
         }
 
         private void btn5_Click(object sender, RoutedEventArgs e)
         {
+            this.Dispatcher.BeginInvoke(new Action(() =>
+            {
+                altezzaGlobale = cabina.Margin.Top;
+            }));
+            if (altezzaGlobale < ALTEZZA_PIANO_5)
+            {
+                salireCabina5 = false;
+            }
+            else
+            {
+                salireCabina5 = true;
+            }
+            Thread t = new Thread(new ThreadStart(MetodoThreadBottone5));
+            t.Start();
+        }
+        public void MetodoThreadBottone5()
+        {
             lock (x)
             {
-                altezzaDaRaggiungere = ALTEZZA_PIANO_5;
-                GestisciPiano();
+                if (altezzaGlobale < ALTEZZA_PIANO_5)
+                {
+                    while (altezzaGlobale < ALTEZZA_PIANO_5)
+                    {
+                        Thread.Sleep(TimeSpan.FromSeconds(0.01));
+                        altezzaGlobale += 2;
+                        this.Dispatcher.BeginInvoke(new Action(() =>
+                        {
+                            cabina.Margin = new Thickness(28, altezzaGlobale, 0, 0);
+                        }));
+                    }
+                    Thread.Sleep(TimeSpan.FromSeconds(0.9));
+                }
+                else
+                {
+                    while (altezzaGlobale > ALTEZZA_PIANO_5)
+                    {
+                        Thread.Sleep(TimeSpan.FromSeconds(0.01));
+                        altezzaGlobale -= 2;
+                        this.Dispatcher.BeginInvoke(new Action(() =>
+                        {
+                            cabina.Margin = new Thickness(28, altezzaGlobale, 0, 0);
+                        }));
+                    }
+                    Thread.Sleep(TimeSpan.FromSeconds(0.9));
+                }
             }
         }
 
         private void btn6_Click(object sender, RoutedEventArgs e)
         {
+            this.Dispatcher.BeginInvoke(new Action(() =>
+            {
+                altezzaGlobale = cabina.Margin.Top;
+            }));
+            if (altezzaGlobale < ALTEZZA_PIANO_6)
+            {
+                salireCabina6 = false;
+            }
+            else
+            {
+                salireCabina6 = true;
+            }
+            Thread t = new Thread(new ThreadStart(MetodoThreadBottone6));
+            t.Start();
+        }
+        public void MetodoThreadBottone6()
+        {
             lock (x)
             {
-                altezzaDaRaggiungere = ALTEZZA_PIANO_6;
-                GestisciPiano();
+                if (altezzaGlobale < ALTEZZA_PIANO_6)
+                {
+                    while (altezzaGlobale < ALTEZZA_PIANO_6)
+                    {
+                        Thread.Sleep(TimeSpan.FromSeconds(0.01));
+                        altezzaGlobale += 2;
+                        this.Dispatcher.BeginInvoke(new Action(() =>
+                        {
+                            cabina.Margin = new Thickness(28, altezzaGlobale, 0, 0);
+                        }));
+                    }
+                    Thread.Sleep(TimeSpan.FromSeconds(0.9));
+                }
+                else
+                {
+                    while (altezzaGlobale > ALTEZZA_PIANO_6)
+                    {
+                        Thread.Sleep(TimeSpan.FromSeconds(0.01));
+                        altezzaGlobale -= 2;
+                        this.Dispatcher.BeginInvoke(new Action(() =>
+                        {
+                            cabina.Margin = new Thickness(28, altezzaGlobale, 0, 0);
+                        }));
+                    }
+                    Thread.Sleep(TimeSpan.FromSeconds(0.9));
+                }
             }
         }
     }
