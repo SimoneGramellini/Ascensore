@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Ascensore"
         mc:Ignorable="d"
-        Title="MainWindow" Height="888" Width="1071">
+        Title="MainWindow" Height="888" Width="1071" WindowStartupLocation="CenterScreen">
     <Grid>
         <Image x:Name="sfondo" HorizontalAlignment="Left" Height="857" VerticalAlignment="Top" Width="1097" Source="sfondo.png"/>
         <Image x:Name="ascensore" HorizontalAlignment="Left" Height="847" VerticalAlignment="Top" Width="432" Source="Ascensore .png" Margin="10,0,0,0"/>

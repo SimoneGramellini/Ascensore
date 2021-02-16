@@ -21,15 +21,16 @@ namespace Ascensore
     /// </summary>
     public partial class MainWindow : Window
     {
+        private static object x = new object();
         const int ALTEZZA_PIANO_1 = 665;
         const int ALTEZZA_PIANO_2 = 543;
         const int ALTEZZA_PIANO_3 = 410;
         const int ALTEZZA_PIANO_4 = 273;
         const int ALTEZZA_PIANO_5 = 143;
-        const int ALTEZZA_PIANO_6 = 22;
-        int altezzaDaRaggiungere = 0;
+        const int ALTEZZA_PIANO_6 = 20;
+        int altezzaDaRaggiungere = 0; 
         bool salire = false;
-        int posizioneCabinaTop = 0;
+        int TopCabina = 0;
         public MainWindow()
         {
             InitializeComponent();
@@ -38,31 +39,36 @@ namespace Ascensore
 
         public void MuoviAscensore()
         {
-            if (!salire) //devo scendere
+            lock (x)
             {
-                for (int i = posizioneCabinaTop; i < altezzaDaRaggiungere; i += 2)
+                if (!salire) //devo scendere
                 {
-                    Thread.Sleep(TimeSpan.FromSeconds(0.01));
-                    this.Dispatcher.BeginInvoke(new Action(() =>
+                    for (int i = TopCabina; i < altezzaDaRaggiungere; i += 2)
                     {
-                        cabina.Margin = new Thickness(28, i, 0, 0);
-                    }));
+                        Thread.Sleep(TimeSpan.FromSeconds(0.01));
+                        this.Dispatcher.BeginInvoke(new Action(() =>
+                        {
+                            cabina.Margin = new Thickness(28, i, 0, 0);
+                        }));
+                    }
                 }
-            }
-            else //salgo
-            {
-                for (int i = posizioneCabinaTop; i > altezzaDaRaggiungere; i -= 2)
+                else //salgo
                 {
-                    Thread.Sleep(TimeSpan.FromSeconds(0.01));
-                    this.Dispatcher.BeginInvoke(new Action(() =>
+                    for (int i = TopCabina; i > altezzaDaRaggiungere; i -= 2)
                     {
-                        cabina.Margin = new Thickness(28, i, 0, 0);
-                    }));
+                        Thread.Sleep(TimeSpan.FromSeconds(0.01));
+                        this.Dispatcher.BeginInvoke(new Action(() =>
+                        {
+                            cabina.Margin = new Thickness(28, i, 0, 0);
+                        }));
+                    }
                 }
+                //Thread.Sleep(TimeSpan.FromSeconds(0,8)); da mettere eventualmente senza il problema del dispatcher
             }
         }
         public void GestisciPiano()
         {
+            MessageBox.Show("messaggio x fix");
             if ((int)cabina.Margin.Top <= altezzaDaRaggiungere)
             {
                 salire = false;
@@ -71,44 +77,62 @@ namespace Ascensore
             {
                 salire = true;
             }
-            posizioneCabinaTop = (int)cabina.Margin.Top;
+            TopCabina = (int)cabina.Margin.Top;
             Thread t = new Thread(new ThreadStart(MuoviAscensore));
             t.Start();
         }
         private void btn1_Click(object sender, RoutedEventArgs e)
         {
-            altezzaDaRaggiungere = ALTEZZA_PIANO_1;
-            GestisciPiano();
+            lock (x)
+            {
+                altezzaDaRaggiungere = ALTEZZA_PIANO_1;
+                GestisciPiano();
+            }
         }
 
         private void btn2_Click(object sender, RoutedEventArgs e)
         {
-            altezzaDaRaggiungere = ALTEZZA_PIANO_2;
-            GestisciPiano();
+            lock (x)
+            {
+                altezzaDaRaggiungere = ALTEZZA_PIANO_2;
+                GestisciPiano();
+            }
         }
 
         private void btn3_Click(object sender, RoutedEventArgs e)
         {
-            altezzaDaRaggiungere = ALTEZZA_PIANO_3;
-            GestisciPiano();
+            lock (x)
+            {
+                altezzaDaRaggiungere = ALTEZZA_PIANO_3;
+                GestisciPiano();
+            }
         }
 
         private void btn4_Click(object sender, RoutedEventArgs e)
         {
-            altezzaDaRaggiungere = ALTEZZA_PIANO_4;
-            GestisciPiano();
+            lock (x)
+            {
+                altezzaDaRaggiungere = ALTEZZA_PIANO_4;
+                GestisciPiano();
+            }
         }
 
         private void btn5_Click(object sender, RoutedEventArgs e)
         {
-            altezzaDaRaggiungere = ALTEZZA_PIANO_5;
-            GestisciPiano();
+            lock (x)
+            {
+                altezzaDaRaggiungere = ALTEZZA_PIANO_5;
+                GestisciPiano();
+            }
         }
 
         private void btn6_Click(object sender, RoutedEventArgs e)
         {
-            altezzaDaRaggiungere = ALTEZZA_PIANO_6;
-            GestisciPiano();
+            lock (x)
+            {
+                altezzaDaRaggiungere = ALTEZZA_PIANO_6;
+                GestisciPiano();
+            }
         }
     }
 }
