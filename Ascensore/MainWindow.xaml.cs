@@ -29,5 +29,30 @@ namespace Ascensore
         {
 
         }
+
+        private void btn2_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btn3_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btn4_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btn5_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btn6_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
