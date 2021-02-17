@@ -69,9 +69,9 @@
         <TextBlock x:Name="cabina" HorizontalAlignment="Left" Margin="28,667,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="159" Width="324" TextAlignment="Center" FontSize="40" FontFamily="Source Sans Pro Semibold">
             <TextBlock.Background>
                 <ImageBrush ImageSource="cabina.png"/>
-            </TextBlock.Background><Run Text="                "/><Run Text="        "/><Run Text="Salendo"/></TextBlock>
-        <TextBlock HorizontalAlignment="Left" Margin="604,740,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="86" Width="208" Foreground="White" FontSize="28" FontFamily="Source Sans Pro Semibold" TextAlignment="Center"><Run Text="Persone nell'ascensore"/><Run Text=":"/></TextBlock>
-        <Label x:Name="lblPersoneAscensore" Content="0" HorizontalAlignment="Left" Margin="816,720,0,0" VerticalAlignment="Top" Height="98" Width="106" Foreground="#FFC50000" FontSize="80" FontFamily="Source Sans Pro Black"/>
+            </TextBlock.Background></TextBlock>
+        <TextBlock HorizontalAlignment="Left" Margin="632,740,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="86" Width="208" Foreground="White" FontSize="28" FontFamily="Source Sans Pro Semibold" TextAlignment="Center"><Run Text="Persone nell'ascensore"/><Run Text=":"/></TextBlock>
+        <Label x:Name="lblPersoneAscensore" Content="0" HorizontalAlignment="Left" Margin="844,720,0,0" VerticalAlignment="Top" Height="98" Width="106" Foreground="#FFC50000" FontSize="80" FontFamily="Source Sans Pro Black"/>
 
     </Grid>
 </Window>

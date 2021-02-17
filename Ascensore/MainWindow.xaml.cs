@@ -40,7 +40,10 @@ namespace Ascensore
 
         private void btn1_Click(object sender, RoutedEventArgs e)
         {
-            personeNelAscensore++;
+            if(personeNelAscensore == 0) //aggiungo una persona che è entrata
+            {
+                personeNelAscensore++;
+            }
             this.Dispatcher.BeginInvoke(new Action(() =>
             {
                 lblPersoneAscensore.Content = personeNelAscensore;
@@ -86,7 +89,10 @@ namespace Ascensore
                     cabina.Text = "                 Scendendo";
                 }));
                 Thread.Sleep(TimeSpan.FromSeconds(secondiDiscesaPersona));
-                personeNelAscensore--;
+                if(personeNelAscensore != 0)
+                {
+                    personeNelAscensore--;
+                }
                 this.Dispatcher.BeginInvoke(new Action(() =>
                 {
                     lblPersoneAscensore.Content = personeNelAscensore;
@@ -97,7 +103,10 @@ namespace Ascensore
 
         private void btn2_Click(object sender, RoutedEventArgs e)
         {
-            personeNelAscensore++;
+            if (personeNelAscensore == 0) //aggiungo una persona che è entrata
+            {
+                personeNelAscensore++;
+            }
             this.Dispatcher.BeginInvoke(new Action(() =>
             {
                 lblPersoneAscensore.Content = personeNelAscensore;
@@ -143,7 +152,10 @@ namespace Ascensore
                     cabina.Text = "                 Scendendo";
                 }));
                 Thread.Sleep(TimeSpan.FromSeconds(secondiDiscesaPersona));
-                personeNelAscensore--;
+                if (personeNelAscensore != 0)
+                {
+                    personeNelAscensore--;
+                }
                 this.Dispatcher.BeginInvoke(new Action(() =>
                 {
                     lblPersoneAscensore.Content = personeNelAscensore;
@@ -154,7 +166,10 @@ namespace Ascensore
 
         private void btn3_Click(object sender, RoutedEventArgs e)
         {
-            personeNelAscensore++;
+            if (personeNelAscensore == 0) //aggiungo una persona che è entrata
+            {
+                personeNelAscensore++;
+            }
             this.Dispatcher.BeginInvoke(new Action(() =>
             {
                 lblPersoneAscensore.Content = personeNelAscensore;
@@ -200,7 +215,10 @@ namespace Ascensore
                     cabina.Text = "                 Scendendo";
                 }));
                 Thread.Sleep(TimeSpan.FromSeconds(secondiDiscesaPersona));
-                personeNelAscensore--;
+                if (personeNelAscensore != 0)
+                {
+                    personeNelAscensore--;
+                }
                 this.Dispatcher.BeginInvoke(new Action(() =>
                 {
                     lblPersoneAscensore.Content = personeNelAscensore;
@@ -211,7 +229,10 @@ namespace Ascensore
 
         private void btn4_Click(object sender, RoutedEventArgs e)
         {
-            personeNelAscensore++;
+            if (personeNelAscensore == 0) //aggiungo una persona che è entrata
+            {
+                personeNelAscensore++;
+            }
             this.Dispatcher.BeginInvoke(new Action(() =>
             {
                 lblPersoneAscensore.Content = personeNelAscensore;
@@ -257,7 +278,10 @@ namespace Ascensore
                     cabina.Text = "                 Scendendo";
                 }));
                 Thread.Sleep(TimeSpan.FromSeconds(secondiDiscesaPersona));
-                personeNelAscensore--;
+                if (personeNelAscensore != 0)
+                {
+                    personeNelAscensore--;
+                }
                 this.Dispatcher.BeginInvoke(new Action(() =>
                 {
                     lblPersoneAscensore.Content = personeNelAscensore;
@@ -268,7 +292,10 @@ namespace Ascensore
 
         private void btn5_Click(object sender, RoutedEventArgs e)
         {
-            personeNelAscensore++;
+            if (personeNelAscensore == 0) //aggiungo una persona che è entrata
+            {
+                personeNelAscensore++;
+            }
             this.Dispatcher.BeginInvoke(new Action(() =>
             {
                 lblPersoneAscensore.Content = personeNelAscensore;
@@ -314,7 +341,10 @@ namespace Ascensore
                     cabina.Text = "                 Scendendo";
                 }));
                 Thread.Sleep(TimeSpan.FromSeconds(secondiDiscesaPersona));
-                personeNelAscensore--;
+                if (personeNelAscensore != 0)
+                {
+                    personeNelAscensore--;
+                }
                 this.Dispatcher.BeginInvoke(new Action(() =>
                 {
                     lblPersoneAscensore.Content = personeNelAscensore;
@@ -325,7 +355,10 @@ namespace Ascensore
 
         private void btn6_Click(object sender, RoutedEventArgs e)
         {
-            personeNelAscensore++;
+            if (personeNelAscensore == 0) //aggiungo una persona che è entrata
+            {
+                personeNelAscensore++;
+            }
             this.Dispatcher.BeginInvoke(new Action(() =>
             {
                 lblPersoneAscensore.Content = personeNelAscensore;
@@ -371,7 +404,10 @@ namespace Ascensore
                     cabina.Text = "                 Scendendo";
                 }));
                 Thread.Sleep(TimeSpan.FromSeconds(secondiDiscesaPersona));
-                personeNelAscensore--;
+                if (personeNelAscensore != 0)
+                {
+                    personeNelAscensore--;
+                }
                 this.Dispatcher.BeginInvoke(new Action(() =>
                 {
                     lblPersoneAscensore.Content = personeNelAscensore;
