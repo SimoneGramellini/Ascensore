@@ -28,25 +28,31 @@ namespace Ascensore
         const double ALTEZZA_PIANO_4 = 273;
         const double ALTEZZA_PIANO_5 = 143;
         const double ALTEZZA_PIANO_6 = 20;
-        const float secondiSalitaPersona = 2;
-        const float secondiDiscesaPersona = 1;
+        const float SECONDI_SALITA_PERSONE = 2;
+        const float SECONDI_DISCESA_PERSONE = 1;
+        int personeInCoda = 0;
         int personeNelAscensore = 0;
         double altezzaGlobale;
         public MainWindow()
         {
             InitializeComponent();
             cabina.Margin = new Thickness(28, ALTEZZA_PIANO_1, 0, 0); //posizione di partenza
+            DisattivaTastierino();
         }
 
         private void btn1_Click(object sender, RoutedEventArgs e)
         {
-            if(personeNelAscensore == 0) //aggiungo una persona che è entrata
+            personeInCoda++;
+            if (personeNelAscensore == 0 || (personeNelAscensore-personeInCoda) == 0)
             {
-                personeNelAscensore++;
+                DisattivaTastierino();
+            }
+            else
+            {
+                AttivaTastierino();
             }
             this.Dispatcher.BeginInvoke(new Action(() =>
             {
-                lblPersoneAscensore.Content = personeNelAscensore;
                 altezzaGlobale = cabina.Margin.Top;
             }));
             Thread t = new Thread(new ThreadStart(MetodoThreadBottone1));
@@ -88,28 +94,38 @@ namespace Ascensore
                 {
                     cabina.Text = "                 Scendendo";
                 }));
-                Thread.Sleep(TimeSpan.FromSeconds(secondiDiscesaPersona));
-                if(personeNelAscensore != 0)
-                {
-                    personeNelAscensore--;
-                }
+                Thread.Sleep(TimeSpan.FromSeconds(SECONDI_DISCESA_PERSONE));
+                personeNelAscensore--;
                 this.Dispatcher.BeginInvoke(new Action(() =>
                 {
                     lblPersoneAscensore.Content = personeNelAscensore;
+                    if(personeNelAscensore != 0)
+                    {
+                        AttivaTastierino();
+                    }
+                    else
+                    {
+                        DisattivaTastierino();
+                    }
                     cabina.Text = "";
                 }));
+                personeInCoda--;
             }
         }
 
         private void btn2_Click(object sender, RoutedEventArgs e)
         {
-            if (personeNelAscensore == 0) //aggiungo una persona che è entrata
+            personeInCoda++;
+            if (personeNelAscensore == 0 || (personeNelAscensore - personeInCoda) == 0)
             {
-                personeNelAscensore++;
+                DisattivaTastierino();
+            }
+            else
+            {
+                AttivaTastierino();
             }
             this.Dispatcher.BeginInvoke(new Action(() =>
             {
-                lblPersoneAscensore.Content = personeNelAscensore;
                 altezzaGlobale = cabina.Margin.Top;
             }));
             Thread t = new Thread(new ThreadStart(MetodoThreadBottone2));
@@ -151,28 +167,38 @@ namespace Ascensore
                 {
                     cabina.Text = "                 Scendendo";
                 }));
-                Thread.Sleep(TimeSpan.FromSeconds(secondiDiscesaPersona));
-                if (personeNelAscensore != 0)
-                {
-                    personeNelAscensore--;
-                }
+                Thread.Sleep(TimeSpan.FromSeconds(SECONDI_DISCESA_PERSONE));
+                personeNelAscensore--;
                 this.Dispatcher.BeginInvoke(new Action(() =>
                 {
                     lblPersoneAscensore.Content = personeNelAscensore;
+                    if (personeNelAscensore != 0)
+                    {
+                        AttivaTastierino();
+                    }
+                    else
+                    {
+                        DisattivaTastierino();
+                    }
                     cabina.Text = "";
                 }));
+                personeInCoda--;
             }
         }
 
         private void btn3_Click(object sender, RoutedEventArgs e)
         {
-            if (personeNelAscensore == 0) //aggiungo una persona che è entrata
+            personeInCoda++;
+            if (personeNelAscensore == 0 || (personeNelAscensore - personeInCoda) == 0)
             {
-                personeNelAscensore++;
+                DisattivaTastierino();
+            }
+            else
+            {
+                AttivaTastierino();
             }
             this.Dispatcher.BeginInvoke(new Action(() =>
             {
-                lblPersoneAscensore.Content = personeNelAscensore;
                 altezzaGlobale = cabina.Margin.Top;
             }));
             Thread t = new Thread(new ThreadStart(MetodoThreadBottone3));
@@ -214,28 +240,38 @@ namespace Ascensore
                 {
                     cabina.Text = "                 Scendendo";
                 }));
-                Thread.Sleep(TimeSpan.FromSeconds(secondiDiscesaPersona));
-                if (personeNelAscensore != 0)
-                {
-                    personeNelAscensore--;
-                }
+                Thread.Sleep(TimeSpan.FromSeconds(SECONDI_DISCESA_PERSONE));
+                personeNelAscensore--;
                 this.Dispatcher.BeginInvoke(new Action(() =>
                 {
                     lblPersoneAscensore.Content = personeNelAscensore;
+                    if (personeNelAscensore != 0)
+                    {
+                        AttivaTastierino();
+                    }
+                    else
+                    {
+                        DisattivaTastierino();
+                    }
                     cabina.Text = "";
                 }));
+                personeInCoda--;
             }
         }
 
         private void btn4_Click(object sender, RoutedEventArgs e)
         {
-            if (personeNelAscensore == 0) //aggiungo una persona che è entrata
+            personeInCoda++;
+            if (personeNelAscensore == 0 || (personeNelAscensore - personeInCoda) == 0)
             {
-                personeNelAscensore++;
+                DisattivaTastierino();
+            }
+            else
+            {
+                AttivaTastierino();
             }
             this.Dispatcher.BeginInvoke(new Action(() =>
             {
-                lblPersoneAscensore.Content = personeNelAscensore;
                 altezzaGlobale = cabina.Margin.Top;
             }));
             Thread t = new Thread(new ThreadStart(MetodoThreadBottone4));
@@ -277,28 +313,38 @@ namespace Ascensore
                 {
                     cabina.Text = "                 Scendendo";
                 }));
-                Thread.Sleep(TimeSpan.FromSeconds(secondiDiscesaPersona));
-                if (personeNelAscensore != 0)
-                {
-                    personeNelAscensore--;
-                }
+                Thread.Sleep(TimeSpan.FromSeconds(SECONDI_DISCESA_PERSONE));
+                personeNelAscensore--;
                 this.Dispatcher.BeginInvoke(new Action(() =>
                 {
                     lblPersoneAscensore.Content = personeNelAscensore;
+                    if (personeNelAscensore != 0)
+                    {
+                        AttivaTastierino();
+                    }
+                    else
+                    {
+                        DisattivaTastierino();
+                    }
                     cabina.Text = "";
                 }));
+                personeInCoda--;
             }
         }
 
         private void btn5_Click(object sender, RoutedEventArgs e)
         {
-            if (personeNelAscensore == 0) //aggiungo una persona che è entrata
+            personeInCoda++;
+            if (personeNelAscensore == 0 || (personeNelAscensore - personeInCoda) == 0)
             {
-                personeNelAscensore++;
+                DisattivaTastierino();
+            }
+            else
+            {
+                AttivaTastierino();
             }
             this.Dispatcher.BeginInvoke(new Action(() =>
             {
-                lblPersoneAscensore.Content = personeNelAscensore;
                 altezzaGlobale = cabina.Margin.Top;
             }));
             Thread t = new Thread(new ThreadStart(MetodoThreadBottone5));
@@ -340,28 +386,38 @@ namespace Ascensore
                 {
                     cabina.Text = "                 Scendendo";
                 }));
-                Thread.Sleep(TimeSpan.FromSeconds(secondiDiscesaPersona));
-                if (personeNelAscensore != 0)
-                {
-                    personeNelAscensore--;
-                }
+                Thread.Sleep(TimeSpan.FromSeconds(SECONDI_DISCESA_PERSONE));
+                personeNelAscensore--;
                 this.Dispatcher.BeginInvoke(new Action(() =>
                 {
                     lblPersoneAscensore.Content = personeNelAscensore;
+                    if (personeNelAscensore != 0)
+                    {
+                        AttivaTastierino();
+                    }
+                    else
+                    {
+                        DisattivaTastierino();
+                    }
                     cabina.Text = "";
                 }));
+                personeInCoda--;
             }
         }
 
         private void btn6_Click(object sender, RoutedEventArgs e)
         {
-            if (personeNelAscensore == 0) //aggiungo una persona che è entrata
+            personeInCoda++;
+            if (personeNelAscensore == 0 || (personeNelAscensore - personeInCoda) == 0)
             {
-                personeNelAscensore++;
+                DisattivaTastierino();
+            }
+            else
+            {
+                AttivaTastierino();
             }
             this.Dispatcher.BeginInvoke(new Action(() =>
             {
-                lblPersoneAscensore.Content = personeNelAscensore;
                 altezzaGlobale = cabina.Margin.Top;
             }));
             Thread t = new Thread(new ThreadStart(MetodoThreadBottone6));
@@ -403,16 +459,22 @@ namespace Ascensore
                 {
                     cabina.Text = "                 Scendendo";
                 }));
-                Thread.Sleep(TimeSpan.FromSeconds(secondiDiscesaPersona));
-                if (personeNelAscensore != 0)
-                {
-                    personeNelAscensore--;
-                }
+                Thread.Sleep(TimeSpan.FromSeconds(SECONDI_DISCESA_PERSONE));
+                personeNelAscensore--;
                 this.Dispatcher.BeginInvoke(new Action(() =>
                 {
                     lblPersoneAscensore.Content = personeNelAscensore;
+                    if (personeNelAscensore != 0)
+                    {
+                        AttivaTastierino();
+                    }
+                    else
+                    {
+                        DisattivaTastierino();
+                    }
                     cabina.Text = "";
                 }));
+                personeInCoda--;
             }
         }
         private void btn1Piano_Click(object sender, RoutedEventArgs e)
@@ -460,12 +522,13 @@ namespace Ascensore
                 {
                     cabina.Text = "                        Salendo";
                 }));
-                Thread.Sleep(TimeSpan.FromSeconds(secondiSalitaPersona));
+                Thread.Sleep(TimeSpan.FromSeconds(SECONDI_SALITA_PERSONE));
                 personeNelAscensore++;
                 this.Dispatcher.BeginInvoke(new Action(() =>
                 {
                     lblPersoneAscensore.Content = personeNelAscensore;
                     cabina.Text = "";
+                    AttivaTastierino();
                 }));
             }
         }
@@ -515,12 +578,13 @@ namespace Ascensore
                 {
                     cabina.Text = "                        Salendo";
                 }));
-                Thread.Sleep(TimeSpan.FromSeconds(secondiSalitaPersona));
+                Thread.Sleep(TimeSpan.FromSeconds(SECONDI_SALITA_PERSONE));
                 personeNelAscensore++;
                 this.Dispatcher.BeginInvoke(new Action(() =>
                 {
                     lblPersoneAscensore.Content = personeNelAscensore;
                     cabina.Text = "";
+                    AttivaTastierino();
                 }));
             }
         }
@@ -570,12 +634,13 @@ namespace Ascensore
                 {
                     cabina.Text = "                        Salendo";
                 }));
-                Thread.Sleep(TimeSpan.FromSeconds(secondiSalitaPersona));
+                Thread.Sleep(TimeSpan.FromSeconds(SECONDI_SALITA_PERSONE));
                 personeNelAscensore++;
                 this.Dispatcher.BeginInvoke(new Action(() =>
                 {
                     lblPersoneAscensore.Content = personeNelAscensore;
                     cabina.Text = "";
+                    AttivaTastierino();
                 }));
             }
         }
@@ -625,12 +690,13 @@ namespace Ascensore
                 {
                     cabina.Text = "                        Salendo";
                 }));
-                Thread.Sleep(TimeSpan.FromSeconds(secondiSalitaPersona));
+                Thread.Sleep(TimeSpan.FromSeconds(SECONDI_SALITA_PERSONE));
                 personeNelAscensore++;
                 this.Dispatcher.BeginInvoke(new Action(() =>
                 {
                     lblPersoneAscensore.Content = personeNelAscensore;
                     cabina.Text = "";
+                    AttivaTastierino();
                 }));
             }
         }
@@ -680,12 +746,13 @@ namespace Ascensore
                 {
                     cabina.Text = "                        Salendo";
                 }));
-                Thread.Sleep(TimeSpan.FromSeconds(secondiSalitaPersona));
+                Thread.Sleep(TimeSpan.FromSeconds(SECONDI_SALITA_PERSONE));
                 personeNelAscensore++;
                 this.Dispatcher.BeginInvoke(new Action(() =>
                 {
                     lblPersoneAscensore.Content = personeNelAscensore;
                     cabina.Text = "";
+                    AttivaTastierino();
                 }));
             }
         }
@@ -734,14 +801,40 @@ namespace Ascensore
                 {
                     cabina.Text = "                        Salendo";
                 }));
-                Thread.Sleep(TimeSpan.FromSeconds(secondiSalitaPersona));
+                Thread.Sleep(TimeSpan.FromSeconds(SECONDI_SALITA_PERSONE));
                 personeNelAscensore++;
                 this.Dispatcher.BeginInvoke(new Action(() =>
                 {
                     lblPersoneAscensore.Content = personeNelAscensore;
                     cabina.Text = "";
+                    AttivaTastierino();
                 }));
             }
+        }
+        public void AttivaTastierino()
+        {
+            btn1.Visibility = Visibility.Visible;
+            btn2.Visibility = Visibility.Visible;
+            btn3.Visibility = Visibility.Visible;
+            btn4.Visibility = Visibility.Visible;
+            btn5.Visibility = Visibility.Visible;
+            btn6.Visibility = Visibility.Visible;
+        }
+        public void DisattivaTastierino()
+        {
+            btn1.Visibility = Visibility.Hidden;
+            btn2.Visibility = Visibility.Hidden;
+            btn3.Visibility = Visibility.Hidden;
+            btn4.Visibility = Visibility.Hidden;
+            btn5.Visibility = Visibility.Hidden;
+            btn6.Visibility = Visibility.Hidden;
+        }
+
+        private void titolo_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("Benvenuto nell'ascensore!");
+            MessageBox.Show("I bottoni neri a sinistra servono per chiamare l'ascensore da quello specifico piano");
+            MessageBox.Show("Quelli verdi a destra servono per andare ad uno specifico piano dall'interno dell'ascensore");
         }
     }
 }

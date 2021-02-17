@@ -9,9 +9,58 @@
     <Grid>
         <Image x:Name="sfondo" HorizontalAlignment="Left" Height="857" VerticalAlignment="Top" Width="1097" Source="sfondo.png"/>
         <Image x:Name="ascensore" HorizontalAlignment="Left" Height="847" VerticalAlignment="Top" Width="432" Source="Ascensore .png" Margin="10,0,0,0"/>
-        <Image x:Name="titolo" HorizontalAlignment="Left" Height="239" Margin="616,0,0,0" VerticalAlignment="Top" Width="447" Source="TITOLO.png"/>
+        <Button x:Name="titolo" HorizontalAlignment="Left" Height="176" Margin="616,0,0,0" VerticalAlignment="Top" Width="447" Click="titolo_Click">
+            <Button.BorderBrush>
+                <ImageBrush/>
+            </Button.BorderBrush>
+            <Button.Background>
+                <ImageBrush ImageSource="TITOLO.png"/>
+            </Button.Background>
+        </Button>
         <Image x:Name="tastierino" HorizontalAlignment="Left" Height="460" Margin="616,244,0,0" VerticalAlignment="Top" Width="302" Source="Tastierino.png"/>
-        <Button x:Name="btn1" Content="" HorizontalAlignment="Left" Margin="641,502,0,0" VerticalAlignment="Top" Width="122" Height="121" Click="btn1_Click" Foreground="{x:Null}">
+        <Button x:Name="btn6Piano" Content="6" HorizontalAlignment="Left" Margin="378,51,0,0" VerticalAlignment="Top" Width="73" Height="103" Background="Black" BorderBrush="Black" Click="btn6Piano_Click" Foreground="White" FontSize="90" FontFamily="Liberation Serif"/>
+        <Button x:Name="btn5Piano" Content="5" HorizontalAlignment="Left" Margin="378,182,0,0" VerticalAlignment="Top" Width="73" Height="103" Background="Black" BorderBrush="Black" Click="btn5Piano_Click" Foreground="White" FontSize="90" FontFamily="Liberation Serif"/>
+        <Button x:Name="btn4Piano" Content="4" HorizontalAlignment="Left" Margin="378,306,0,0" VerticalAlignment="Top" Width="73" Height="102" Background="Black" BorderBrush="Black" Click="btn4Piano_Click" Foreground="White" FontSize="90" FontFamily="Liberation Serif"/>
+        <Button x:Name="btn3Piano" Content="3" HorizontalAlignment="Left" Margin="378,433,0,0" VerticalAlignment="Top" Width="73" Height="106" Background="Black" BorderBrush="Black" Click="btn3Piano_Click" Foreground="White" FontSize="90" FontFamily="Liberation Serif"/>
+        <Button x:Name="btn2Piano" Content="2" HorizontalAlignment="Left" Margin="378,564,0,0" VerticalAlignment="Top" Width="73" Height="108" Background="Black" BorderBrush="Black" Click="btn2Piano_Click" Foreground="White" FontSize="90" FontFamily="Liberation Serif"/>
+        <Button x:Name="btn1Piano" Content="1" HorizontalAlignment="Left" Margin="378,694,0,0" VerticalAlignment="Top" Width="73" Height="109" Background="Black" BorderBrush="Black" Click="btn1Piano_Click" Foreground="White" FontSize="90" FontFamily="Liberation Serif"/>
+        <TextBlock x:Name="cabina" HorizontalAlignment="Left" Margin="28,667,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="159" Width="324" TextAlignment="Center" FontSize="40" FontFamily="Source Sans Pro Semibold">
+            <TextBlock.Background>
+                <ImageBrush ImageSource="cabina.png"/>
+            </TextBlock.Background></TextBlock>
+        <TextBlock HorizontalAlignment="Left" Margin="632,740,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="86" Width="208" Foreground="White" FontSize="28" FontFamily="Source Sans Pro Semibold" TextAlignment="Center"><Run Text="Persone nell'ascensore"/><Run Text=":"/></TextBlock>
+        <Label x:Name="lblPersoneAscensore" Content="0" HorizontalAlignment="Left" Margin="844,720,0,0" VerticalAlignment="Top" Height="98" Width="106" Foreground="#FFC50000" FontSize="80" FontFamily="Source Sans Pro Black"/>
+        <TextBlock x:Name="_6img" HorizontalAlignment="Left" Margin="770,271,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="105" Width="107" Opacity="0.8">
+            <TextBlock.Background>
+                <ImageBrush ImageSource="6.png"/>
+            </TextBlock.Background>
+        </TextBlock>
+        <TextBlock x:Name="_5img" HorizontalAlignment="Left" Margin="651,271,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="105" Width="107" Opacity="0.8">
+            <TextBlock.Background>
+                <ImageBrush ImageSource="5.png"/>
+            </TextBlock.Background>
+        </TextBlock>
+        <TextBlock x:Name="_2img" HorizontalAlignment="Left" Margin="770,510,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="106" Width="107" Opacity="0.8">
+            <TextBlock.Background>
+                <ImageBrush ImageSource="2.png"/>
+            </TextBlock.Background>
+        </TextBlock>
+        <TextBlock x:Name="_1img" HorizontalAlignment="Left" Margin="650,510,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="106" Width="107" Opacity="0.8">
+            <TextBlock.Background>
+                <ImageBrush ImageSource="1.png"/>
+            </TextBlock.Background>
+        </TextBlock>
+        <TextBlock x:Name="_4img" HorizontalAlignment="Left" Margin="770,389,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="105" Width="107" Opacity="0.8">
+            <TextBlock.Background>
+                <ImageBrush ImageSource="4.png"/>
+            </TextBlock.Background>
+        </TextBlock>
+        <TextBlock x:Name="_3img" HorizontalAlignment="Left" Margin="650,389,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="105" Width="108" Opacity="0.8">
+            <TextBlock.Background>
+                <ImageBrush ImageSource="3.png"/>
+            </TextBlock.Background>
+        </TextBlock>
+        <Button x:Name="btn1" Content="" HorizontalAlignment="Left" Margin="643,503,0,0" VerticalAlignment="Top" Width="122" Height="121" Click="btn1_Click" Foreground="{x:Null}">
             <Button.BorderBrush>
                 <ImageBrush/>
             </Button.BorderBrush>
@@ -19,7 +68,7 @@
                 <ImageBrush ImageSource="1.png"/>
             </Button.Background>
         </Button>
-        <Button x:Name="btn3" Content="" HorizontalAlignment="Left" Margin="641,382,0,0" VerticalAlignment="Top" Width="122" Height="122" Click="btn3_Click" Foreground="{x:Null}">
+        <Button x:Name="btn3" Content="" HorizontalAlignment="Left" Margin="643,382,0,0" VerticalAlignment="Top" Width="122" Height="122" Click="btn3_Click" Foreground="{x:Null}">
             <Button.BorderBrush>
                 <ImageBrush/>
             </Button.BorderBrush>
@@ -27,7 +76,7 @@
                 <ImageBrush ImageSource="3.png"/>
             </Button.Background>
         </Button>
-        <Button x:Name="btn5" Content="" HorizontalAlignment="Left" Margin="641,263,0,0" VerticalAlignment="Top" Width="122" Height="121" Click="btn5_Click" Foreground="{x:Null}">
+        <Button x:Name="btn5" Content="" HorizontalAlignment="Left" Margin="643,261,0,0" VerticalAlignment="Top" Width="122" Height="121" Click="btn5_Click" Foreground="{x:Null}">
             <Button.BorderBrush>
                 <ImageBrush/>
             </Button.BorderBrush>
@@ -35,7 +84,7 @@
                 <ImageBrush ImageSource="5.png"/>
             </Button.Background>
         </Button>
-        <Button x:Name="btn2" Content="" HorizontalAlignment="Left" Margin="770,503,0,0" VerticalAlignment="Top" Width="122" Height="121" Click="btn2_Click" Foreground="{x:Null}" RenderTransformOrigin="1,0">
+        <Button x:Name="btn2" Content="" HorizontalAlignment="Left" Margin="763,502,0,0" VerticalAlignment="Top" Width="122" Height="121" Click="btn2_Click" Foreground="{x:Null}" RenderTransformOrigin="1,0">
             <Button.BorderBrush>
                 <ImageBrush/>
             </Button.BorderBrush>
@@ -43,7 +92,7 @@
                 <ImageBrush ImageSource="2.png"/>
             </Button.Background>
         </Button>
-        <Button x:Name="btn4" Content="" HorizontalAlignment="Left" Margin="770,382,0,0" VerticalAlignment="Top" Width="122" Height="122" Click="btn4_Click" Foreground="{x:Null}">
+        <Button x:Name="btn4" Content="" HorizontalAlignment="Left" Margin="764,381,0,0" VerticalAlignment="Top" Width="122" Height="122" Click="btn4_Click" Foreground="{x:Null}">
             <Button.BorderBrush>
                 <ImageBrush/>
             </Button.BorderBrush>
@@ -51,7 +100,7 @@
                 <ImageBrush ImageSource="4.png"/>
             </Button.Background>
         </Button>
-        <Button x:Name="btn6" Content="" HorizontalAlignment="Left" Margin="769,262,0,0" VerticalAlignment="Top" Width="122" Height="121" Click="btn6_Click" Foreground="{x:Null}">
+        <Button x:Name="btn6" Content="" HorizontalAlignment="Left" Margin="763,261,0,0" VerticalAlignment="Top" Width="122" Height="121" Click="btn6_Click" Foreground="{x:Null}">
             <Button.BorderBrush>
                 <ImageBrush/>
             </Button.BorderBrush>
@@ -59,19 +108,5 @@
                 <ImageBrush ImageSource="6.png"/>
             </Button.Background>
         </Button>
-        <Button x:Name="btn6Piano" Content="" HorizontalAlignment="Left" Margin="378,51,0,0" VerticalAlignment="Top" Width="73" Height="91" Background="Black" BorderBrush="Black" Click="btn6Piano_Click" Foreground="{x:Null}"/>
-        <Button x:Name="btn5Piano" Content="" HorizontalAlignment="Left" Margin="378,182,0,0" VerticalAlignment="Top" Width="73" Height="91" Background="Black" BorderBrush="Black" Click="btn5Piano_Click" Foreground="{x:Null}"/>
-        <Button x:Name="btn4Piano" Content="" HorizontalAlignment="Left" Margin="378,311,0,0" VerticalAlignment="Top" Width="73" Height="91" Background="Black" BorderBrush="Black" Click="btn4Piano_Click" Foreground="{x:Null}"/>
-        <Button x:Name="btn3Piano" Content="" HorizontalAlignment="Left" Margin="378,442,0,0" VerticalAlignment="Top" Width="73" Height="91" Background="Black" BorderBrush="Black" Click="btn3Piano_Click" Foreground="{x:Null}"/>
-        <Button x:Name="btn2Piano" Content="" HorizontalAlignment="Left" Margin="378,571,0,0" VerticalAlignment="Top" Width="73" Height="91" Background="Black" BorderBrush="Black" Click="btn2Piano_Click" Foreground="{x:Null}"/>
-        <Button x:Name="btn1Piano" Content="" HorizontalAlignment="Left" Margin="378,702,0,0" VerticalAlignment="Top" Width="73" Height="91" Background="Black" BorderBrush="Black" Click="btn1Piano_Click" Foreground="{x:Null}"/>
-        <Image x:Name="piani" HorizontalAlignment="Left" Height="717" Margin="387,62,0,0" VerticalAlignment="Top" Width="81" Source="piani.png"/>
-        <TextBlock x:Name="cabina" HorizontalAlignment="Left" Margin="28,667,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="159" Width="324" TextAlignment="Center" FontSize="40" FontFamily="Source Sans Pro Semibold">
-            <TextBlock.Background>
-                <ImageBrush ImageSource="cabina.png"/>
-            </TextBlock.Background></TextBlock>
-        <TextBlock HorizontalAlignment="Left" Margin="632,740,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="86" Width="208" Foreground="White" FontSize="28" FontFamily="Source Sans Pro Semibold" TextAlignment="Center"><Run Text="Persone nell'ascensore"/><Run Text=":"/></TextBlock>
-        <Label x:Name="lblPersoneAscensore" Content="0" HorizontalAlignment="Left" Margin="844,720,0,0" VerticalAlignment="Top" Height="98" Width="106" Foreground="#FFC50000" FontSize="80" FontFamily="Source Sans Pro Black"/>
-
     </Grid>
 </Window>
